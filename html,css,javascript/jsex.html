@@ -1,0 +1,31 @@
+<html>
+    <style>
+        
+    </style>
+    <head>
+    <title>Welcome to javascript</title>
+    <script>
+        function onBtnclick()
+        {
+            var textBoxValue=document.getElementById("txtName");
+            alert(textBoxValue.value);
+            var lblLocal=document.getElementById("IblResult");
+            lblLocal.innerText="Welcome "+  textBoxValue.value;
+        }
+        document.write("Hello Worlds");
+    </script>
+    </head>
+    <body>
+        <marquee>
+        <h1>This is hello world program</h1>
+        </marquee>
+        <script>
+            console.log("Hello world!!")  
+            // It doesn't show in browser
+        </script>
+        <label id="lblName">Name</label>
+        <input id="txtName" value=" "type=text></input>
+        <input id="btName" type="button" onclick=onBtnclick() value="Click here to submit"></input>
+        <!-- when we use the document.get ele by id we can get the values of these elements -->
+    </body>
+</html>

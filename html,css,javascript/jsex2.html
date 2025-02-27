@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Student Registration Form</h2>
+      <form onsubmit="return check_credential(event)">
+        <div class="form-group">
+          <label for="studentName">Student Name</label>
+          <input type="text" class="form-control" id="txtStudentName" />
+          <span id="studentNameError" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="college">College Name</label>
+          <input type="text" class="form-control" id="txtCollege" />
+          <span id="collegeError" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="txtEmail" />
+          <span id="emailError" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="txtCity" />
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="txtState" />
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" id="txtCountry" />
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="txtGender">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <span id="genderError" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="txtDob" />
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="txtUsername" />
+          <span id="usernameError" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="txtPassword" />
+          <span id="passwordError" class="text-danger"></span>
+        </div>
+
+        <input type="submit" class="btn btn-primary mt-3" />
+        <p id="loginMessage" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+
+    <script>
+      function check_credential(event) {
+        event.preventDefault();
+        let studentName = document.getElementById("txtStudentName").value.trim();
+        let college = document.getElementById("txtCollege").value.trim();
+        let email = document.getElementById("txtEmail").value.trim();
+        let gender = document.getElementById("txtGender").value;
+        let username = document.getElementById("txtUsername").value.trim();
+        let password = document.getElementById("txtPassword").value.trim();
+
+        let studentNameError = document.getElementById("studentNameError");
+        let collegeError = document.getElementById("collegeError");
+        let emailError = document.getElementById("emailError");
+        let genderError = document.getElementById("genderError");
+        let usernameError = document.getElementById("usernameError");
+        let passwordError = document.getElementById("passwordError");
+        let loginMessage = document.getElementById("loginMessage");
+
+        studentNameError.textContent = "";
+        collegeError.textContent = "";
+        emailError.textContent = "";
+        genderError.textContent = "";
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        loginMessage.textContent = "";
+
+        let isValid = true;
+
+        if (studentName === "") {
+          studentNameError.textContent = "Enter the student name";
+          isValid = false;
+        }
+        if (college === "") {
+          collegeError.textContent = "Enter the college name";
+          isValid = false;
+        }
+        if (email === "") {
+          emailError.textContent = "Enter a valid email";
+          isValid = false;
+        }
+        if (gender === "") {
+          genderError.textContent = "Select gender";
+          isValid = false;
+        }
+        if (username === "") {
+          usernameError.textContent = "Enter the username";
+          isValid = false;
+        }
+        if (password === "") {
+          passwordError.textContent = "Enter the password";
+          isValid = false;
+        }
+
+        if (!isValid) {
+          return false;
+        }
+
+        if (username === "Bharath" && password === "333") {
+          loginMessage.style.color = "green";
+          loginMessage.textContent = "Login successful!";
+        } else {
+          loginMessage.style.color = "red";
+          loginMessage.textContent = "Invalid credentials";
+        }
+
+        return false;
+      }
+    </script>
+  </body>
+</html>
